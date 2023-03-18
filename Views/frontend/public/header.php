@@ -54,13 +54,24 @@
             </div>
             <div class="col-lg-6 text-center text-lg-right">
                 <div class="d-inline-flex align-items-center">
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown">Tài khoản</button>
-                        <div class="dropdown-menu dropdown-menu-right">
-                            <button class="dropdown-item" type="button">Đăng nhập</button>
-                            <button class="dropdown-item" type="button">Đăng kí</button>
-                        </div>
-                    </div>
+                    <?php
+                        if(isset($_SESSION['userlogin']) && $_SESSION['userlogin'] == true){
+                            echo '<div class="btn-group">
+                                    <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown">'.$_SESSION['userUsername'].'</button>
+                                    <div class="dropdown-menu dropdown-menu-right">
+                                        <a href="?controller=login&action=logout" style="text-decoration: none;"><button class="dropdown-item" type="button">Log out</button></a>
+                                    </div>
+                                </div>';
+                        }else{
+                            echo '<div class="btn-group">
+                                    <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown">Tài khoản</button>
+                                    <div class="dropdown-menu dropdown-menu-right">
+                                    <a class="dropdown-item" href="?controller=login&action=logout" style="text-decoration: none;">Đăng nhập</a>
+                                    <a class="dropdown-item" href="?controller=login&action=logout" style="text-decoration: none;">Đăng kí</a>
+                                    </div>
+                                </div>';
+                        }
+                        ?>
                     <div class="btn-group mx-2">
                         <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown">VND</button>
                         <div class="dropdown-menu dropdown-menu-right">

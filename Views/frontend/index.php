@@ -102,7 +102,7 @@ include 'public/header.php';
     <style>
     .img-cate{
         object-fit: cover; 
-        height: 100px;"
+        height: 100px;
     }
     </style>
 
@@ -209,14 +209,14 @@ include 'public/header.php';
 
     <!-- Products Start -->
     <div class="container-fluid pt-5 pb-3">
-        <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4"><span class="bg-secondary pr-3">Sản phẩm nổi bật</span></h2>
+        <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4"><span class="bg-secondary pr-3">Sản phẩm mới nhất</span></h2>
         <div class="row px-xl-5">
             <?php
-            foreach ($listProduct as $item) {
+            for ($i=count($listProduct)-1; $i>=count($listProduct)-8; $i--) {
                 echo'<div class="col-lg-3 col-md-4 col-sm-6 pb-1">
                         <div class="product-item bg-light mb-4">
                             <div class="product-img position-relative overflow-hidden">
-                                <img class="img-fluid w-100" src="'.$item['image'].'" alt="">
+                                <img class="img-fluid w-100" src="'.$listProduct[$i]['image'].'" alt="">
                                 <div class="product-action">
                                     <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-shopping-cart"></i></a>
                                     <a class="btn btn-outline-dark btn-square" href=""><i class="far fa-heart"></i></a>
@@ -225,9 +225,9 @@ include 'public/header.php';
                                 </div>
                             </div>
                             <div class="text-center py-4">
-                                <a class="h6 text-decoration-none text-truncate" href="?controller=product&action=show&id='.$item['id'].'" style="white-space: normal;">'.$item['name'].'</a>
+                                <a class="h6 text-decoration-none text-truncate" href="?controller=product&action=show&id='.$listProduct[$i]['id'].'" style="white-space: normal;">'.$listProduct[$i]['name'].'</a>
                                 <div class="d-flex align-items-center justify-content-center mt-2">
-                                    <h5>'.number_format($item['price'], 0, '.', ',').' VNĐ</h5><h6 class="text-muted ml-2"><del>'.number_format($item['price'], 0, '.', ',').' VNĐ</del></h6>
+                                    <h5>'.number_format($listProduct[$i]['price'], 0, '.', ',').' VNĐ</h5><h6 class="text-muted ml-2"><del>'.number_format($listProduct[$i]['price'], 0, '.', ',').' VNĐ</del></h6>
                                 </div>
                                 <div class="d-flex align-items-center justify-content-center mb-1">
                                     <small class="fa fa-star text-primary mr-1"></small>

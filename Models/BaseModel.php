@@ -4,13 +4,15 @@ class BaseModel extends Database
 
     protected $conn;
 
-    public function __construct(){
+    public function __construct()
+    {
         $this->conn = $this->connect();
     }
      /**
      * Lay tat ca du lieu trong bang
      */
-    public function all($table, $select, $orderBys, $limit){
+    public function all($table, $select, $orderBys, $limit)
+    {
         $columns = implode(',',$select);
         $orderByString = implode(' ',$orderBys);
         $sql = "SELECT $columns FROM $table ORDER BY $orderByString LIMIT $limit";
@@ -24,7 +26,8 @@ class BaseModel extends Database
     /**
      * Lay du lieu tu 2 bang join nhau
      */
-    public function joinTable(){
+    public function joinTable()
+    {
         $sql = "SELECT p.id, p.name, p.price, p.image, p.category_id, c.name AS category, p.create_at, p.update_at
                 FROM products AS p JOIN categories AS c
                 ON category_id = c.id";
@@ -75,7 +78,8 @@ class BaseModel extends Database
     /**
      * Them du lieu vao bang
      */
-    public function create($tableName, $data){
+    public function create($tableName, $data)
+    {
         $columns = implode(',', array_keys($data));
         $newValues = array_map(function($valueElement){
             return "'".$valueElement."'";
@@ -87,7 +91,8 @@ class BaseModel extends Database
     /**
      * Update du lieu vao bang
      */
-    public function updateDataTable($tableName, $id, $data){
+    public function updateDataTable($tableName, $id, $data)
+    {
         $dataSets = [];
         foreach ($data as $key => $value) {
             array_push($dataSets, "$key = '".$value."'");
@@ -101,7 +106,8 @@ class BaseModel extends Database
     /**
      * Delete du lieu khoi bang
      */
-    public function deleteData($tableName, $id){
+    public function deleteData($tableName, $id)
+    {
         $sql = "DELETE FROM $tableName WHERE id = $id";
         $this->_query($sql);
     }
@@ -151,7 +157,8 @@ class BaseModel extends Database
         return $data;
     }
 
-    private function _query($sql){
+    private function _query($sql)
+    {
         return mysqli_query($this->conn, $sql);
     }
 }

@@ -26,7 +26,8 @@ class DashboardController extends BaseController
         ]);
     }
 
-    public function updateProduct(){
+    public function updateProduct()
+    {
         date_default_timezone_set('Asia/Ho_Chi_Minh');
         $currentTime = date('Y-m-d H:i:s');
         $data = [
@@ -40,11 +41,13 @@ class DashboardController extends BaseController
         return $this->productModel->updateData($_GET['id'], $data);
     }
 
-    public function addProduct(){
+    public function addProduct()
+    {
         return $this->view('backend.addProduct');
     }
 
-    public function createProduct(){
+    public function createProduct()
+    {
         $data = [
             'name' => $_POST['productName'],
             'price' => $_POST['productPrice'],
@@ -57,7 +60,8 @@ class DashboardController extends BaseController
         return $this->productModel->createData($data);
     }
 
-    private function getLimitProducts(){
+    private function getLimitProducts()
+    {
         $currentPage = 1;
         if (isset($_GET['page'])){
             $currentPage = $_GET['page'];
@@ -68,7 +72,8 @@ class DashboardController extends BaseController
         return $limitProducts;
     }
 
-    private function getPagesProducts(){
+    private function getPagesProducts()
+    {
         $total = $this->productModel->getTotal();
         $pages = ceil($total / 3);
         return $pages;

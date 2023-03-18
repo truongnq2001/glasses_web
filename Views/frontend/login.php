@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="en">
 
@@ -62,16 +63,16 @@
     
                                 <div class="form-group mb-3 text-center row mt-3 pt-1">
                                     <div class="col-12">
-                                        <button class="btn btn-info w-100 waves-effect waves-light" type="submit">Log In</button>
+                                        <button class="btn btn-info w-100 waves-effect waves-light" type="submit">Đăng nhập</button>
                                     </div>
                                 </div>
     
                                 <div class="form-group mb-0 row mt-2">
                                     <div class="col-sm-7 mt-3">
-                                        <a href="auth-recoverpw.html" class="text-muted"><i class="mdi mdi-lock"></i> Forgot your password?</a>
+                                        <a href="" class="text-muted"><i class="mdi mdi-lock"></i> Quên mật khẩu?</a>
                                     </div>
                                     <div class="col-sm-5 mt-3">
-                                        <a href="?controller=register" class="text-muted"><i class="mdi mdi-account-circle"></i> Create an account</a>
+                                        <a href="?controller=register" class="text-muted"><i class="mdi mdi-account-circle"></i> Đăng kí ngay</a>
                                     </div>
                                 </div>
                             </form>

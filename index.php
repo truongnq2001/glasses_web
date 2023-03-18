@@ -4,6 +4,10 @@ require './Core/Database.php';
 require './Models/BaseModel.php';
 require './Controllers/BaseController.php';
 
+// if(isset($_SESSION['userLogin']) && $_SESSION['userLogin'] == true && $_GET['controller'] == 'login'){
+//     header('Location: index.php');
+// }
+
 if(isset(($_GET['controller']))){
     $controllerName = ucfirst((strtolower($_GET['controller']) ?? 'WelcomeController').'Controller');
     $actionName = $_GET['action'] ?? 'index';

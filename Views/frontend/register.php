@@ -36,26 +36,26 @@
                             </div>
                         </div>
     
-                        <h4 class="text-muted text-center font-size-18"><b>Register</b></h4>
+                        <h4 class="text-muted text-center font-size-18"><b>Đăng kí</b></h4>
     
                         <div class="p-3">
-                            <form class="form-horizontal mt-3" action="index.html">
+                            <form class="form-horizontal mt-3" action="?controller=register&action=registerAccount" method="POST">
     
                                 <div class="form-group mb-3 row">
                                     <div class="col-12">
-                                        <input class="form-control" type="email" required="" placeholder="Email">
+                                        <input name="email" class="form-control" type="email" required="" placeholder="Email">
                                     </div>
                                 </div>
     
                                 <div class="form-group mb-3 row">
                                     <div class="col-12">
-                                        <input class="form-control" type="text" required="" placeholder="Username">
+                                        <input name="username" class="form-control" type="text" required="" placeholder="Username">
                                     </div>
                                 </div>
     
                                 <div class="form-group mb-3 row">
                                     <div class="col-12">
-                                        <input class="form-control" type="password" required="" placeholder="Password">
+                                        <input name="password" class="form-control" type="password" required="" placeholder="Password">
                                     </div>
                                 </div>
     
@@ -70,13 +70,13 @@
     
                                 <div class="form-group text-center row mt-3 pt-1">
                                     <div class="col-12">
-                                        <button class="btn btn-info w-100 waves-effect waves-light" type="submit">Register</button>
+                                        <button class="btn btn-info w-100 waves-effect waves-light" type="submit">Đăng kí</button>
                                     </div>
                                 </div>
     
                                 <div class="form-group mt-2 mb-0 row">
                                     <div class="col-12 mt-3 text-center">
-                                        <a href="?controller=login" class="text-muted">Already have account?</a>
+                                        <a href="?controller=login" class="text-muted">Đã có tài khoản?</a>
                                     </div>
                                 </div>
                             </form>
