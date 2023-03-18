@@ -19,5 +19,3 @@ if(isset(($_GET['controller']))){
     $controllerObject = new HomeController;
     $controllerObject ->index();
 }
-
-?>

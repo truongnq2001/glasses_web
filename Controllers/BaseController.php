@@ -12,9 +12,13 @@ class BaseController{
         foreach ($data as $key => $value) {
             $$key = $value;
         }
-        return require(self::VIEW_FOLDER_NAME . '/' . str_replace('.','/',$viewPath) .
-         '.php');
+        return require(
+            self::VIEW_FOLDER_NAME
+            . '/'
+            . str_replace('.','/',$viewPath)
+            . '.php');
     }
+    
     protected function loadModel($modelPath){
         return require(self::MODEL_FOLDER_NAME . '/' . $modelPath .
          '.php');

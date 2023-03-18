@@ -87,7 +87,7 @@ class BaseModel extends Database
     /**
      * Update du lieu vao bang
      */
-    public function update($tableName, $id, $data){
+    public function updateDataTable($tableName, $id, $data){
         $dataSets = [];
         foreach ($data as $key => $value) {
             array_push($dataSets, "$key = '".$value."'");
@@ -101,7 +101,7 @@ class BaseModel extends Database
     /**
      * Delete du lieu khoi bang
      */
-    public function delete($tableName, $id){
+    public function deleteData($tableName, $id){
         $sql = "DELETE FROM $tableName WHERE id = $id";
         $this->_query($sql);
     }

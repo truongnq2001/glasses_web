@@ -9,7 +9,7 @@ class ProductModel extends BaseModel
         return $this->create(self::TABLE, $data);
     }
     public function updateData($id, $data){
-        return $this->update(self::TABLE, $id, $data);
+        return $this->updateDataTable(self::TABLE, $id, $data);
     }
     public function getById($id){
         return $this->findById($id);
