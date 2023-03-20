@@ -105,8 +105,10 @@
                 </a>
             </div>
             <div class="col-lg-4 col-6 text-left">
-                <form action="?controller=product&action=search" method="POST">
+                <form action="?controller=product&action=search" method="GET">
                     <div class="input-group">
+                    <input type="hidden" name="controller" value="product">
+                    <input type="hidden" name="action" value="search">
                         <input type="text" name="searchName" class="form-control" placeholder="Tìm kiếm sản phẩm">
                         <div class="input-group-append">
                             <button class="input-group-text bg-transparent text-primary" style="outline: none">
@@ -160,14 +162,8 @@
                         <div class="navbar-nav mr-auto py-0">
                             <a href="index.php" class="nav-item nav-link active">Trang chủ</a>
                             <a href="?controller=product&category=trong-kinh" class="nav-item nav-link">Tròng kính</a>
-                            <a href="detail.html" class="nav-item nav-link">Kính chính hãng</a>
-                            <div class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Sale <i class="fa fa-angle-down mt-1"></i></a>
-                                <div class="dropdown-menu bg-primary rounded-0 border-0 m-0">
-                                    <a href="cart.html" class="dropdown-item">Mua 1 tặng 2</a>
-                                    <a href="checkout.html" class="dropdown-item">Sale 20%</a>
-                                </div>
-                            </div>
+                            <a href="detail.html" class="nav-item nav-link">Mua 1 tặng 2</a>
+                            <a href="detail.html" class="nav-item nav-link">Sale 20%</a>
                             <a href="contact.html" class="nav-item nav-link">Liên hệ</a>
                         </div>
                         <div class="navbar-nav ml-auto py-0 d-none d-lg-block">

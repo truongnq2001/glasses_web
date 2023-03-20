@@ -16,9 +16,9 @@ include 'public/header.php';
                             <img class="position-absolute w-100 h-100" src="https://kinhmateyeplus.com/wp-content/uploads/2019/07/DSCF4080-e1564115601725.jpg" style="object-fit: cover;">
                             <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                                 <div class="p-3" style="max-width: 700px;">
-                                    <h1 class="display-4 text-white mb-3 animate__animated animate__fadeInDown">Kính cận</h1>
+                                    <h1 class="display-4 text-white mb-3 animate__animated animate__fadeInDown">Kính cận cả viền</h1>
                                     <p class="mx-md-5 px-5 animate__animated animate__bounceIn">Kính cận, gọng kính cận MULTI Shop cao cấp, hợp thời trang</p>
-                                    <a class="btn btn-outline-light py-2 px-4 mt-3 animate__animated animate__fadeInUp" href="#">Mua ngay</a>
+                                    <a class="btn btn-outline-light py-2 px-4 mt-3 animate__animated animate__fadeInUp" href="?controller=product&category=kinh-can-ca-vien">Mua ngay</a>
                                 </div>
                             </div>
                         </div>
@@ -28,7 +28,7 @@ include 'public/header.php';
                                 <div class="p-3" style="max-width: 700px;">
                                     <h1 class="display-4 text-white mb-3 animate__animated animate__fadeInDown">Kính râm</h1>
                                     <p class="mx-md-5 px-5 animate__animated animate__bounceIn">Kính râm MULTI Shop cao cấp, hợp thời trang</p>
-                                    <a class="btn btn-outline-light py-2 px-4 mt-3 animate__animated animate__fadeInUp" href="#">Mua ngay</a>
+                                    <a class="btn btn-outline-light py-2 px-4 mt-3 animate__animated animate__fadeInUp" href="?controller=product&category=kinh-ram">Mua ngay</a>
                                 </div>
                             </div>
                         </div>
@@ -38,7 +38,7 @@ include 'public/header.php';
                                 <div class="p-3" style="max-width: 700px;">
                                     <h1 class="display-4 text-white mb-3 animate__animated animate__fadeInDown">Kính râm cận</h1>
                                     <p class="mx-md-5 px-5 animate__animated animate__bounceIn">Kính râm cận MULTI Shop cao cấp, hợp thời trang</p>
-                                    <a class="btn btn-outline-light py-2 px-4 mt-3 animate__animated animate__fadeInUp" href="#">Mua ngay</a>
+                                    <a class="btn btn-outline-light py-2 px-4 mt-3 animate__animated animate__fadeInUp" href="?controller=product&category=kinh-ram-can">Mua ngay</a>
                                 </div>
                             </div>
                         </div>
@@ -110,7 +110,7 @@ include 'public/header.php';
     <div class="container-fluid pt-5">
         <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4"><span class="bg-secondary pr-3">Loại Kính</span></h2>
         <div class="row px-xl-5 pb-3">
-            <div class="col-lg-4 col-md-4 col-sm-6 pb-1">
+            <!-- <div class="col-lg-4 col-md-4 col-sm-6 pb-1">
                 <a class="text-decoration-none" href="?controller=product&category=kinh-can">
                     <div class="cat-item d-flex align-items-center mb-4">
                         <div class="overflow-hidden" style="width: 100px; height: 100px;">
@@ -122,7 +122,7 @@ include 'public/header.php';
                         </div>
                     </div>
                 </a>
-            </div>
+            </div> -->
             <div class="col-lg-4 col-md-4 col-sm-6 pb-1">
                 <a class="text-decoration-none" href="?controller=product&category=kinh-can-nua-vien">
                     <div class="cat-item img-zoom d-flex align-items-center mb-4">
@@ -131,7 +131,7 @@ include 'public/header.php';
                         </div>
                         <div class="flex-fill pl-3">
                             <h6>Kính cận nửa viền</h6>
-                            <small class="text-body">100 Products</small>
+                            <small class="text-body"><?= $totalKinhCanNuaVien?> sản phẩm</small>
                         </div>
                     </div>
                 </a>
@@ -144,7 +144,7 @@ include 'public/header.php';
                         </div>
                         <div class="flex-fill pl-3">
                             <h6>Kính cận cả viền</h6>
-                            <small class="text-body">100 Products</small>
+                            <small class="text-body"><?= $totalKinhCanCaVien?> sản phẩm</small>
                         </div>
                     </div>
                 </a>
@@ -157,12 +157,12 @@ include 'public/header.php';
                         </div>
                         <div class="flex-fill pl-3">
                             <h6>Kính râm</h6>
-                            <small class="text-body">100 Products</small>
+                            <small class="text-body"><?= $totalKinhRam?> sản phẩm</small>
                         </div>
                     </div>
                 </a>
             </div>
-            <div class="col-lg-4 col-md-4 col-sm-6 pb-1">
+            <div class="col-lg-4 col-md-4 col-sm-6 pb-1" style="margin: 0 auto;">
                 <a class="text-decoration-none" href="?controller=product&category=kinh-ram-can">
                     <div class="cat-item img-zoom d-flex align-items-center mb-4">
                         <div class="overflow-hidden" style="width: 100px; height: 100px;">
@@ -170,12 +170,12 @@ include 'public/header.php';
                         </div>
                         <div class="flex-fill pl-3">
                             <h6>Kính râm cận</h6>
-                            <small class="text-body">100 Products</small>
+                            <small class="text-body"><?= $totalKinhRamCan?> sản phẩm</small>
                         </div>
                     </div>
                 </a>
             </div>
-            <div class="col-lg-3 col-md-4 col-sm-6 pb-1">
+            <div class="col-lg-4 col-md-4 col-sm-6 pb-1" style="margin: 0 auto;">
                 <a class="text-decoration-none" href="?controller=product&category=trong-kinh">
                     <div class="cat-item img-zoom d-flex align-items-center mb-4">
                         <div class="overflow-hidden" style="width: 100px; height: 100px;">
@@ -183,7 +183,7 @@ include 'public/header.php';
                         </div>
                         <div class="flex-fill pl-3">
                             <h6>Tròng Kính</h6>
-                            <small class="text-body">100 Products</small>
+                            <small class="text-body"><?= $totalTrongKinh?> sản phẩm</small>
                         </div>
                     </div>
                 </a>
@@ -212,11 +212,11 @@ include 'public/header.php';
         <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4"><span class="bg-secondary pr-3">Sản phẩm mới nhất</span></h2>
         <div class="row px-xl-5">
             <?php
-            for ($i=count($listProduct)-1; $i>=count($listProduct)-8; $i--) {
+            foreach ($listProduct as $item){
                 echo'<div class="col-lg-3 col-md-4 col-sm-6 pb-1">
                         <div class="product-item bg-light mb-4">
                             <div class="product-img position-relative overflow-hidden">
-                                <img class="img-fluid w-100" src="'.$listProduct[$i]['image'].'" alt="">
+                                <img class="img-fluid w-100" src="'.$item['image'].'" alt="">
                                 <div class="product-action">
                                     <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-shopping-cart"></i></a>
                                     <a class="btn btn-outline-dark btn-square" href=""><i class="far fa-heart"></i></a>
@@ -225,9 +225,9 @@ include 'public/header.php';
                                 </div>
                             </div>
                             <div class="text-center py-4">
-                                <a class="h6 text-decoration-none text-truncate" href="?controller=product&action=show&id='.$listProduct[$i]['id'].'" style="white-space: normal; font-size: 15px;">'.$listProduct[$i]['name'].'</a>
+                                <a class="h6 text-decoration-none text-truncate" href="?controller=product&action=show&id='.$item['id'].'" style="white-space: normal; font-size: 15px;">'.$item['name'].'</a>
                                 <div class="d-flex align-items-center justify-content-center mt-2">
-                                    <h5 style="font-size: 15px; color: #ff5c00;">'.number_format($listProduct[$i]['price'], 0, '.', ',').' VNĐ</h5><h6 class="text-muted ml-2" style="font-size: 15px;"><del>'.number_format($listProduct[$i]['price'], 0, '.', ',').' VNĐ</del></h6>
+                                    <h5 style="font-size: 15px; color: #ff5c00;">'.number_format($item['price'], 0, '.', ',').' VNĐ</h5><h6 class="text-muted ml-2" style="font-size: 15px;"><del>'.number_format($item['price'], 0, '.', ',').' VNĐ</del></h6>
                                 </div>
                                 
                             </div>
@@ -457,7 +457,7 @@ include 'public/header.php';
 
 
     <!-- Offer Start -->
-    <div class="container-fluid pt-5 pb-3">
+    <!-- <div class="container-fluid pt-5 pb-3">
         <div class="row px-xl-5">
             <div class="col-md-6">
                 <div class="product-offer mb-30" style="height: 300px;">
@@ -480,7 +480,7 @@ include 'public/header.php';
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- Offer End -->
 
 

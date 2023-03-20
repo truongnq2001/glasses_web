@@ -80,7 +80,7 @@ class DashboardController extends BaseController
         }
         $index = ($currentPage - 1)*3;
 
-        $limitProducts = $this->productModel->getLimit($index);
+        $limitProducts = $this->productModel->getLimit($index, 3);
         return $limitProducts;
     }
 

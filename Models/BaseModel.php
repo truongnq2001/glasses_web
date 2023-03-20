@@ -131,11 +131,11 @@ class BaseModel extends Database
     /**
      * Limit so ban ghi trong bang 
      */
-    public function limit(int $index)
+    public function limit(int $index, int $numLimit)
     {
         $sql = "SELECT p.id, p.name, p.price, p.image, p.category_id, c.name AS category, p.create_at, p.update_at
                 FROM products AS p JOIN categories AS c
-                ON category_id = c.id LIMIT $index ,3";
+                ON category_id = c.id ORDER BY update_at DESC LIMIT $index ,$numLimit";
         $query = $this->_query($sql);
         $data = [];
         while ($row = mysqli_fetch_assoc($query)) {
@@ -155,6 +155,64 @@ class BaseModel extends Database
             array_push($data, $row);
         }
         return $data;
+    }
+    /**
+     * Lay ra tong so ban ghi cua mot danh muc
+     */
+    public function totalCategoryId(int $id)
+    {
+        $sql = "SELECT COUNT(*) FROM products WHERE category_id = $id";
+        $query = $this->_query($sql);
+        return mysqli_fetch_assoc($query);
+    }
+
+    /**
+     * Lay ra so san pham moi nhat trong bảng product
+     */
+    public function numberNewProduct(int $number)
+    {
+        $sql = "SELECT * FROM products ORDER BY update_at DESC LIMIT $number;";
+        $query = $this->_query($sql);
+        $data = [];
+        while ($row = mysqli_fetch_assoc($query)) {
+            array_push($data, $row);
+        }
+        return $data;
+    }
+    /**
+     * Limit so ban ghi cua mot danh muc trong bang 
+     */
+    public function limitProduct(int $index, int $numLimit, string $condition, string $limitPrice, string $sort)
+    {
+        if($sort == ""){
+            $sort = 'update_at DESC';
+        }
+        $sql = "SELECT p.id, p.name, p.price, p.image, p.category_id, c.name AS category, p.create_at, p.update_at
+                FROM products AS p JOIN categories AS c
+                ON category_id = c.id WHERE $condition $limitPrice ORDER BY $sort LIMIT $index ,$numLimit";
+        $query = $this->_query($sql);
+        $data = [];
+        while ($row = mysqli_fetch_assoc($query)) {
+            array_push($data, $row);
+        }
+        return $data;
+    }
+    /**
+     * Lay tong so ban ghi theo danh muc trong bang 
+     */
+    public function totalByCategory(string $tableName, int $categoryId, string $limitPrice)
+    {
+        $sql = "SELECT COUNT(id) AS total_records FROM $tableName WHERE category_id = $categoryId $limitPrice";
+        $query = $this->_query($sql);
+        $data = [];
+        while ($row = mysqli_fetch_assoc($query)) {
+            array_push($data, $row);
+        }
+        $total = 0;
+        if($data != null && count($data) > 0){
+            $total = $data[0]['total_records'];
+        }
+        return $total;
     }
 
     private function _query($sql)
