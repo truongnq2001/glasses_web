@@ -1,29 +1,51 @@
 <?php
+
 class ProductModel extends BaseModel
 {
     const TABLE = 'products';
-    public function getAll(){
+
+    public function getAll()
+    {
         return $this->joinTable();
     }
-    public function createData($data){
+
+    public function createData(array $data)
+    {
         return $this->create(self::TABLE, $data);
     }
-    public function updateData($id, $data){
+
+    public function updateData(int $id, array $data)
+    {
         return $this->updateDataTable(self::TABLE, $id, $data);
     }
-    public function getById($id){
+
+    public function deleteProduct(int $id)
+    {
+        return $this->deleteData(self::TABLE, $id);
+    }
+
+    public function getById(int $id)
+    {
         return $this->findById($id);
     }
-    public function getByCategory($category_id){
-        return $this->findByCategory($category_id);
+
+    public function getByCategory(int $categoryId)
+    {
+        return $this->findByCategory($categoryId);
     }
-    public function getTotal(){
+
+    public function getTotal()
+    {
         return $this->total(self::TABLE);
     }
-    public function getLimit($index){
+
+    public function getLimit(int $index)
+    {
         return $this->limit($index);
     }
-    public function getSearch($name){
+
+    public function getSearch(string $name)
+    {
         return $this->search(self::TABLE, $name);
     }
 }

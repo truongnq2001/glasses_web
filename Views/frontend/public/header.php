@@ -55,7 +55,7 @@
             <div class="col-lg-6 text-center text-lg-right">
                 <div class="d-inline-flex align-items-center">
                     <?php
-                        if(isset($_SESSION['userlogin']) && $_SESSION['userlogin'] == true){
+                        if(isset($_SESSION['userLogin']) && $_SESSION['userLogin'] == true){
                             echo '<div class="btn-group">
                                     <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown">'.$_SESSION['userUsername'].'</button>
                                     <div class="dropdown-menu dropdown-menu-right">

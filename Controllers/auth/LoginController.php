@@ -6,6 +6,9 @@ class LoginController extends BaseController{
     {
         $this->loadModel('UserModel');
         $this->userModel = new UserModel;
+        if(isset($_SESSION['userLogin']) && $_SESSION['userLogin'] == true){
+            header('Location: index.php');
+        }
     }
 
     public function index()
@@ -37,13 +40,13 @@ class LoginController extends BaseController{
                 }
             }
             if($username == $user[$index]['username'] && $password == $user[$index]['password']){
-                $_SESSION['userlogin'] = true;
+                $_SESSION['userLogin'] = true;
                 $_SESSION['userId'] = $user[$index]['id'];
                 $_SESSION['userUsername'] = $user[$index]['username'];
                 $_SESSION['userEmail'] = $user[$index]['email'];
             }
         }
-        if(isset($_SESSION['userlogin']) && $_SESSION['userlogin'] == true){
+        if(isset($_SESSION['userLogin']) && $_SESSION['userLogin'] == true){
             header('Location: index.php');
         }else{
             header('Location: ?controller=login');

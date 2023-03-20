@@ -6,6 +6,9 @@ class RegisterController extends BaseController{
     {
         $this->loadModel('UserModel');
         $this->userModel = new UserModel;
+        if(isset($_SESSION['userLogin']) && $_SESSION['userLogin'] == true){
+            header('Location: index.php');
+        }
     }
 
     public function index()

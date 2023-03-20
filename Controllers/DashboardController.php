@@ -8,14 +8,21 @@ class DashboardController extends BaseController
     {
         $this->loadModel('ProductModel');
         $this->productModel = new ProductModel;
+        if(!isset($_SESSION['loginAdmin']) || $_SESSION['loginAdmin'] != true){
+            header('Location: admin.php?controller=loginAdmin');
+            exit();
+        }
     }
 
     public function index()
     {
-        return $this->view('backend.index', [
-            'limitProducts' => $this->getLimitProducts(),
-            'pages' => $this->getPagesProducts(),
-        ]);
+        return $this->view(
+            data: [
+                'limitProducts' => $this->getLimitProducts(),
+                'pages' => $this->getPagesProducts(),
+            ],
+            viewPath: 'backend.index',
+        );
     }
 
     public function edit()
@@ -28,7 +35,6 @@ class DashboardController extends BaseController
 
     public function updateProduct()
     {
-        date_default_timezone_set('Asia/Ho_Chi_Minh');
         $currentTime = date('Y-m-d H:i:s');
         $data = [
             'name' => $_POST['productName'],
@@ -58,6 +64,12 @@ class DashboardController extends BaseController
         header('Location: ?controller=dashboard');
 
         return $this->productModel->createData($data);
+    }
+
+    public function deleteProductData()
+    {
+        $id = $_GET['id'];
+        return $this->productModel->deleteProduct($id);
     }
 
     private function getLimitProducts()

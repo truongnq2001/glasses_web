@@ -110,7 +110,7 @@ include 'public/header.php';
     <div class="container-fluid pt-5">
         <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4"><span class="bg-secondary pr-3">Loại Kính</span></h2>
         <div class="row px-xl-5 pb-3">
-            <div class="col-lg-3 col-md-4 col-sm-6 pb-1">
+            <div class="col-lg-4 col-md-4 col-sm-6 pb-1">
                 <a class="text-decoration-none" href="?controller=product&category=kinh-can">
                     <div class="cat-item d-flex align-items-center mb-4">
                         <div class="overflow-hidden" style="width: 100px; height: 100px;">
@@ -123,7 +123,7 @@ include 'public/header.php';
                     </div>
                 </a>
             </div>
-            <div class="col-lg-3 col-md-4 col-sm-6 pb-1">
+            <div class="col-lg-4 col-md-4 col-sm-6 pb-1">
                 <a class="text-decoration-none" href="?controller=product&category=kinh-can-nua-vien">
                     <div class="cat-item img-zoom d-flex align-items-center mb-4">
                         <div class="overflow-hidden" style="width: 100px; height: 100px;">
@@ -136,7 +136,7 @@ include 'public/header.php';
                     </div>
                 </a>
             </div>
-            <div class="col-lg-3 col-md-4 col-sm-6 pb-1">
+            <div class="col-lg-4 col-md-4 col-sm-6 pb-1">
                 <a class="text-decoration-none" href="?controller=product&category=kinh-can-ca-vien">
                     <div class="cat-item img-zoom d-flex align-items-center mb-4">
                         <div class="overflow-hidden" style="width: 100px; height: 100px;">
@@ -149,7 +149,7 @@ include 'public/header.php';
                     </div>
                 </a>
             </div>
-            <div class="col-lg-3 col-md-4 col-sm-6 pb-1">
+            <div class="col-lg-4 col-md-4 col-sm-6 pb-1">
                 <a class="text-decoration-none" href="?controller=product&category=kinh-ram">
                     <div class="cat-item img-zoom d-flex align-items-center mb-4">
                         <div class="overflow-hidden" style="width: 100px; height: 100px;">
@@ -162,7 +162,7 @@ include 'public/header.php';
                     </div>
                 </a>
             </div>
-            <div class="col-lg-3 col-md-4 col-sm-6 pb-1" style="margin: 0 auto">
+            <div class="col-lg-4 col-md-4 col-sm-6 pb-1">
                 <a class="text-decoration-none" href="?controller=product&category=kinh-ram-can">
                     <div class="cat-item img-zoom d-flex align-items-center mb-4">
                         <div class="overflow-hidden" style="width: 100px; height: 100px;">
@@ -175,7 +175,7 @@ include 'public/header.php';
                     </div>
                 </a>
             </div>
-            <div class="col-lg-3 col-md-4 col-sm-6 pb-1" style="margin: 0 auto">
+            <div class="col-lg-3 col-md-4 col-sm-6 pb-1">
                 <a class="text-decoration-none" href="?controller=product&category=trong-kinh">
                     <div class="cat-item img-zoom d-flex align-items-center mb-4">
                         <div class="overflow-hidden" style="width: 100px; height: 100px;">
@@ -188,7 +188,7 @@ include 'public/header.php';
                     </div>
                 </a>
             </div>
-            <div class="col-lg-3 col-md-4 col-sm-6 pb-1" style="margin: 0 auto">
+            <!-- <div class="col-lg-3 col-md-4 col-sm-6 pb-1" style="margin: 0 auto">
                 <a class="text-decoration-none" href="?controller=product&category=kinh-chinh-hang">
                     <div class="cat-item img-zoom d-flex align-items-center mb-4">
                         <div class="overflow-hidden" style="width: 100px; height: 100px;">
@@ -200,7 +200,7 @@ include 'public/header.php';
                         </div>
                     </div>
                 </a>
-            </div>
+            </div> -->
             
         </div>
     </div>
@@ -225,18 +225,11 @@ include 'public/header.php';
                                 </div>
                             </div>
                             <div class="text-center py-4">
-                                <a class="h6 text-decoration-none text-truncate" href="?controller=product&action=show&id='.$listProduct[$i]['id'].'" style="white-space: normal;">'.$listProduct[$i]['name'].'</a>
+                                <a class="h6 text-decoration-none text-truncate" href="?controller=product&action=show&id='.$listProduct[$i]['id'].'" style="white-space: normal; font-size: 15px;">'.$listProduct[$i]['name'].'</a>
                                 <div class="d-flex align-items-center justify-content-center mt-2">
-                                    <h5>'.number_format($listProduct[$i]['price'], 0, '.', ',').' VNĐ</h5><h6 class="text-muted ml-2"><del>'.number_format($listProduct[$i]['price'], 0, '.', ',').' VNĐ</del></h6>
+                                    <h5 style="font-size: 15px; color: #ff5c00;">'.number_format($listProduct[$i]['price'], 0, '.', ',').' VNĐ</h5><h6 class="text-muted ml-2" style="font-size: 15px;"><del>'.number_format($listProduct[$i]['price'], 0, '.', ',').' VNĐ</del></h6>
                                 </div>
-                                <div class="d-flex align-items-center justify-content-center mb-1">
-                                    <small class="fa fa-star text-primary mr-1"></small>
-                                    <small class="fa fa-star text-primary mr-1"></small>
-                                    <small class="fa fa-star text-primary mr-1"></small>
-                                    <small class="fa fa-star text-primary mr-1"></small>
-                                    <small class="fa fa-star text-primary mr-1"></small>
-                                    <small>(99)</small>
-                                </div>
+                                
                             </div>
                         </div>
                     </div>';

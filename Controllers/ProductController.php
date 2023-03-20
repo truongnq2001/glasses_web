@@ -11,26 +11,26 @@ class ProductController extends BaseController{
         $category = $_GET['category'];
         switch ($category) {
             case 'kinh-ram':
-                $category_id = 1;
+                $categoryId = 1;
                 break;
             
             case 'kinh-can-nua-vien':
-                $category_id = 2;
+                $categoryId = 2;
                 break;
             
             case 'kinh-can-ca-vien':
-                $category_id = 3;
+                $categoryId = 3;
                 break;
 
             case 'kinh-ram-can':
-                $category_id = 4;
+                $categoryId = 4;
                 break;
 
             case 'trong-kinh':
-                $category_id = 5;
+                $categoryId = 5;
                 break;
         }
-        $listProduct = $this->productModel->getByCategory($category_id);
+        $listProduct = $this->productModel->getByCategory($categoryId);
         return $this->view('frontend.category',[
             'listProduct' => $listProduct,
         ]);

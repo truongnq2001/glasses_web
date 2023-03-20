@@ -5,6 +5,10 @@ class LoginAdminController extends BaseController{
     public function __construct(){
         $this->loadModel('AdminModel');
         $this->adminModel = new AdminModel;
+        if(isset($_SESSION['loginAdmin']) && $_SESSION['loginAdmin'] == true){
+            header('Location: admin.php?controller=dashboard');
+            exit();
+        }
     }
 
     public function index(){

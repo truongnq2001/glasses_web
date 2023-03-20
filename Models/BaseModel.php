@@ -11,7 +11,7 @@ class BaseModel extends Database
      /**
      * Lay tat ca du lieu trong bang
      */
-    public function all($table, $select, $orderBys, $limit)
+    public function all(string $table, array $select, array $orderBys, int $limit)
     {
         $columns = implode(',',$select);
         $orderByString = implode(' ',$orderBys);
@@ -41,7 +41,7 @@ class BaseModel extends Database
     /**
      * Lay ra toan bo san pham trong danh muc
      */
-    public function findByCategory($category_id)
+    public function findByCategory(int $category_id)
     {
         $sql = "SELECT p.id, p.name, p.price, p.image, p.category_id, c.name AS category, p.create_at, p.update_at
                 FROM products AS p JOIN categories AS c
@@ -57,7 +57,7 @@ class BaseModel extends Database
     /**
      * Lay ra mot ban ghi dùng id trong bang ket hop product va categories
      */
-    public function findById($id)
+    public function findById(int $id)
     {
         $sql = "SELECT p.id, p.name, p.price, p.image, c.name AS category, p.create_at, p.update_at
                 FROM products AS p JOIN categories AS c
@@ -69,7 +69,7 @@ class BaseModel extends Database
      /**
      * Lay ra mot ban ghi trong bang
      */
-    public function find($tableName, $id)
+    public function find(string $tableName, int $id)
     {
         $sql = "SELECT * FROM $tableName WHERE id = $id LIMIT 1";
         $query = $this->_query($sql);
@@ -78,7 +78,7 @@ class BaseModel extends Database
     /**
      * Them du lieu vao bang
      */
-    public function create($tableName, $data)
+    public function create(string $tableName, array $data)
     {
         $columns = implode(',', array_keys($data));
         $newValues = array_map(function($valueElement){
@@ -91,7 +91,7 @@ class BaseModel extends Database
     /**
      * Update du lieu vao bang
      */
-    public function updateDataTable($tableName, $id, $data)
+    public function updateDataTable(string $tableName, int $id, array $data)
     {
         $dataSets = [];
         foreach ($data as $key => $value) {
@@ -106,7 +106,7 @@ class BaseModel extends Database
     /**
      * Delete du lieu khoi bang
      */
-    public function deleteData($tableName, $id)
+    public function deleteData(string $tableName, int $id)
     {
         $sql = "DELETE FROM $tableName WHERE id = $id";
         $this->_query($sql);
@@ -114,7 +114,7 @@ class BaseModel extends Database
     /**
      * Lay tong so ban ghi trong bang 
      */
-    public function total($tableName)
+    public function total(string $tableName)
     {
         $sql = "SELECT COUNT(id) AS total_records FROM $tableName";
         $query = $this->_query($sql);
@@ -131,7 +131,7 @@ class BaseModel extends Database
     /**
      * Limit so ban ghi trong bang 
      */
-    public function limit($index)
+    public function limit(int $index)
     {
         $sql = "SELECT p.id, p.name, p.price, p.image, p.category_id, c.name AS category, p.create_at, p.update_at
                 FROM products AS p JOIN categories AS c
@@ -146,7 +146,7 @@ class BaseModel extends Database
     /**
      * Tim kiem trong bang 
      */
-    public function search($tableName, $name)
+    public function search(string $tableName, string $name)
     {
         $sql = "SELECT * FROM $tableName WHERE name LIKE '%$name%'";
         $query = $this->_query($sql);

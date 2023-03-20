@@ -120,7 +120,7 @@ include 'public/dashboard.php';
                                                                                 </td>
                                                                             </form>
                                                                             <td>
-                                                                                <button class="btn btn-danger" type="submit" style="width: 100%;">Xóa</button>
+                                                                                <button class="btn btn-danger" onclick="confirmDelete('.$item['id'].')" type="submit" style="width: 100%;">Xóa</button>
                                                                             </td>
                                                                         </tr>';
                                                                 } else{
@@ -140,7 +140,7 @@ include 'public/dashboard.php';
                                                                                 </a>
                                                                             </td>
                                                                             <td>
-                                                                                <button class="btn btn-danger" type="submit" style="width: 100%;">Xóa</button>
+                                                                                <button class="btn btn-danger" onclick="confirmDelete('.$item['id'].')" type="submit" style="width: 100%;">Xóa</button>
                                                                             </td>
                                                                         </tr>';
                                                                     }
@@ -161,13 +161,28 @@ include 'public/dashboard.php';
                                                                                     </a>
                                                                                 </td>
                                                                                 <td>
-                                                                                    <button class="btn btn-danger" type="submit" style="width: 100%;">Xóa</button>
+                                                                                    <button class="btn btn-danger" onclick="confirmDelete('.$item['id'].')" type="submit" style="width: 100%;">Xóa</button>
                                                                                 </td>
                                                                             </tr>';
                                                             }
                                                     }
                                                     ?>
                                                 </tbody><!-- end tbody -->
+                                                <script>
+                                                    function confirmDelete(productId) {
+                                                    if (confirm("Bạn có chắc chắn muốn xóa sản phẩm này không?")) {
+                                                        var xmlhttp = new XMLHttpRequest();
+                                                        xmlhttp.onreadystatechange = function() {
+                                                            if (this.readyState == 4 && this.status == 200) {
+                                                                alert("Xóa sản phẩm thành công!");
+                                                                location.reload();
+                                                            }
+                                                        };
+                                                        xmlhttp.open("GET", "admin.php?controller=dashboard&action=deleteProductData&id=" + productId, true);
+                                                        xmlhttp.send();
+                                                    }
+                                                    }
+                                                </script>
                                             </table> <!-- end table -->
                                         </div>
                                     </div><!-- end card -->
