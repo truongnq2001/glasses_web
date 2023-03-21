@@ -53,9 +53,9 @@ class ProductModel extends BaseModel
         return $this->numberNewProduct($number);
     }
 
-    public function getTotalByCategory(int $categoryId, string $limitPrice)
+    public function getTotalByCondition(string $condition, string $limitPrice)
     {
-        return $this->totalByCategory(self::TABLE, $categoryId, $limitPrice);
+        return $this->totalByCondition(self::TABLE, $condition, $limitPrice);
     }
 }
 ?>

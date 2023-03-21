@@ -14,7 +14,7 @@ class ProductController extends BaseController{
         $limitPrice = $this->getLimitPrice();
         $condition = "p.category_id = $categoryId";
         $listProduct = $this->getLimitProductsCondition($condition);
-        $page = $this->getPagesProducts($this->productModel->getTotalByCategory($categoryId, $limitPrice));
+        $page = $this->getPagesProducts($this->productModel->getTotalByCondition("category_id = $categoryId", $limitPrice));
         return $this->view('frontend.category',[
             'listProduct' => $listProduct,
             'categoryName' => $categoryName,
@@ -33,7 +33,7 @@ class ProductController extends BaseController{
         $searchName = $_GET['searchName'];
         $condition = "p.name LIKE '%$searchName%'";
         $listProduct = $this->getLimitProductsCondition($condition);
-        $page = $this->getPagesProducts(count($listProduct));
+        $page = $this->getPagesProducts($this->productModel->getTotalByCondition("name LIKE '%$searchName%'", ""));
         return $this->view('frontend.category',[
             'listProduct' => $listProduct,
             'searchName' => $_GET['searchName'],

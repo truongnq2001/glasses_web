@@ -171,9 +171,15 @@
                                 <i class="fas fa-heart text-primary"></i>
                                 <span class="badge text-secondary border border-secondary rounded-circle" style="padding-bottom: 2px;">0</span>
                             </a>
-                            <a href="" class="btn px-0 ml-3">
+                            <?php
+                            $totalQuantity = 0;
+                            for ($i = 0; $i < count($_SESSION['cart']); $i++) {
+                                $totalQuantity = $totalQuantity + $_SESSION['cart'][$i]['product_quantity'];
+                            }
+                            ?>
+                            <a href="?controller=cart" class="btn px-0 ml-3">
                                 <i class="fas fa-shopping-cart text-primary"></i>
-                                <span class="badge text-secondary border border-secondary rounded-circle" style="padding-bottom: 2px;">0</span>
+                                <span class="badge text-secondary border border-secondary rounded-circle" style="padding-bottom: 2px;"><?=$totalQuantity?></span>
                             </a>
                         </div>
                     </div>

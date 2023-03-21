@@ -47,6 +47,7 @@ class LoginController extends BaseController{
             }
         }
         if(isset($_SESSION['userLogin']) && $_SESSION['userLogin'] == true){
+            $_SESSION['cart'] = [];
             header('Location: index.php');
         }else{
             header('Location: ?controller=login');

@@ -200,9 +200,9 @@ class BaseModel extends Database
     /**
      * Lay tong so ban ghi theo danh muc trong bang 
      */
-    public function totalByCategory(string $tableName, int $categoryId, string $limitPrice)
+    public function totalByCondition(string $tableName, string $condition, string $limitPrice)
     {
-        $sql = "SELECT COUNT(id) AS total_records FROM $tableName WHERE category_id = $categoryId $limitPrice";
+        $sql = "SELECT COUNT(id) AS total_records FROM $tableName WHERE $condition $limitPrice";
         $query = $this->_query($sql);
         $data = [];
         while ($row = mysqli_fetch_assoc($query)) {
