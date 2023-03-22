@@ -3,13 +3,13 @@
 
 <head>
     <meta charset="utf-8">
-    <title>MultiShop - Online Shop Website Template</title>
+    <title>Glasses Shop</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="Free HTML Templates" name="keywords">
     <meta content="Free HTML Templates" name="description">
 
     <!-- Favicon -->
-    <link href="./Views/frontend/assets_frontend/img/favicon.ico" rel="icon">
+    <link href="https://groupgiamgia.com/wp-content/uploads/2021/12/logo.png" rel="icon">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -46,10 +46,10 @@
         <div class="row bg-secondary py-1 px-xl-5">
             <div class="col-lg-6 d-none d-lg-block">
                 <div class="d-inline-flex align-items-center h-100">
-                    <a class="text-body mr-3" href="">Về chúng tôi</a>
-                    <a class="text-body mr-3" href="">Liên hệ</a>
-                    <a class="text-body mr-3" href="">Trợ giúp</a>
-                    <a class="text-body mr-3" href="">FAQs</a>
+                    <a class="text-body mr-3" href="?controller=contact">Về chúng tôi</a>
+                    <a class="text-body mr-3" href="?controller=contact">Liên hệ</a>
+                    <a class="text-body mr-3" href="?controller=contact">Trợ giúp</a>
+                    <a class="text-body mr-3" href="?controller=contact">FAQs</a>
                 </div>
             </div>
             <div class="col-lg-6 text-center text-lg-right">
@@ -67,7 +67,7 @@
                                     <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown">Tài khoản</button>
                                     <div class="dropdown-menu dropdown-menu-right">
                                     <a class="dropdown-item" href="?controller=login&action=logout" style="text-decoration: none;">Đăng nhập</a>
-                                    <a class="dropdown-item" href="?controller=login&action=logout" style="text-decoration: none;">Đăng kí</a>
+                                    <a class="dropdown-item" href="?controller=register" style="text-decoration: none;">Đăng kí</a>
                                     </div>
                                 </div>';
                         }
@@ -100,7 +100,7 @@
         <div class="row align-items-center bg-light py-3 px-xl-5 d-none d-lg-flex">
             <div class="col-lg-4">
                 <a href="index.php" class="text-decoration-none">
-                    <span class="h1 text-uppercase text-primary bg-dark px-2">Multi</span>
+                    <span class="h1 text-uppercase text-primary bg-dark px-2">Glasses</span>
                     <span class="h1 text-uppercase text-dark bg-primary px-2 ml-n1">Shop</span>
                 </a>
             </div>
@@ -152,7 +152,7 @@
             <div class="col-lg-9">
                 <nav class="navbar navbar-expand-lg bg-dark navbar-dark py-3 py-lg-0 px-0">
                     <a href="" class="text-decoration-none d-block d-lg-none">
-                        <span class="h1 text-uppercase text-dark bg-light px-2">Multi</span>
+                        <span class="h1 text-uppercase text-dark bg-light px-2">Glasses</span>
                         <span class="h1 text-uppercase text-light bg-primary px-2 ml-n1">Shop</span>
                     </a>
                     <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
@@ -162,9 +162,9 @@
                         <div class="navbar-nav mr-auto py-0">
                             <a href="index.php" class="nav-item nav-link active">Trang chủ</a>
                             <a href="?controller=product&category=trong-kinh" class="nav-item nav-link">Tròng kính</a>
-                            <a href="detail.html" class="nav-item nav-link">Mua 1 tặng 2</a>
-                            <a href="detail.html" class="nav-item nav-link">Sale 20%</a>
-                            <a href="contact.html" class="nav-item nav-link">Liên hệ</a>
+                            <a href="" class="nav-item nav-link">Mua 1 tặng 2</a>
+                            <a href="" class="nav-item nav-link">Sale 20%</a>
+                            <a href="?controller=contact" class="nav-item nav-link">Liên hệ</a>
                         </div>
                         <div class="navbar-nav ml-auto py-0 d-none d-lg-block">
                             <a href="" class="btn px-0">
@@ -173,8 +173,10 @@
                             </a>
                             <?php
                             $totalQuantity = 0;
-                            for ($i = 0; $i < count($_SESSION['cart']); $i++) {
-                                $totalQuantity = $totalQuantity + $_SESSION['cart'][$i]['product_quantity'];
+                            if(isset($_SESSION['userLogin']) && $_SESSION['userLogin'] == true){
+                                for ($i = 0; $i < count($_SESSION['cart']); $i++) {
+                                    $totalQuantity = $totalQuantity + $_SESSION['cart'][$i]['product_quantity'];
+                                }
                             }
                             ?>
                             <a href="?controller=cart" class="btn px-0 ml-3">

@@ -2,7 +2,8 @@
 
 class ProductController extends BaseController{
     private $productModel;
-    public function __construct(){
+    public function __construct()
+    {
         $this->loadModel('ProductModel');
         $this->productModel = new ProductModel;
     }
@@ -22,14 +23,24 @@ class ProductController extends BaseController{
         ]);
     }
 
-    public function show(){
+    public function show()
+    {
+        $this->loadModel('CommentModel');
+        $commentModel = new CommentModel;
+
         $id = $_GET['id'];
         $product = $this->productModel->getById($id);
+        $allComment = $commentModel->getLimitComment($id, 0, 8);
+        $listProduct = $this->productModel->getLimitProduct(0, 4, "p.category_id = p.category_id", "", "");
+
         return $this->view('frontend.detail',[
             'product' => $product,
+            'allComment' => $allComment,
+            'listProduct' =>  $listProduct,
         ]);
     }
-    public function search(){
+    public function search()
+    {
         $searchName = $_GET['searchName'];
         $condition = "p.name LIKE '%$searchName%'";
         $listProduct = $this->getLimitProductsCondition($condition);

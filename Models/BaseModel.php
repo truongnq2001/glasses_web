@@ -214,6 +214,19 @@ class BaseModel extends Database
         }
         return $total;
     }
+    /**
+     * Limit gioi han ban ghi trong bang 
+     */
+    public function limitItemTable(string $tableName, int $productId, int $index, int $numLimit)
+    {
+        $sql = "SELECT * FROM $tableName WHERE product_id = $productId ORDER BY updated_at DESC LIMIT $index ,$numLimit";
+        $query = $this->_query($sql);
+        $data = [];
+        while ($row = mysqli_fetch_assoc($query)) {
+            array_push($data, $row);
+        }
+        return $data;
+    }
 
     private function _query($sql)
     {

@@ -2,7 +2,8 @@
 
 class LoginAdminController extends BaseController{
     private $adminModel;
-    public function __construct(){
+    public function __construct()
+    {
         $this->loadModel('AdminModel');
         $this->adminModel = new AdminModel;
         if(isset($_SESSION['loginAdmin']) && $_SESSION['loginAdmin'] == true){
@@ -11,11 +12,13 @@ class LoginAdminController extends BaseController{
         }
     }
 
-    public function index(){
+    public function index()
+    {
         return $this->view('backend.login');
     }
 
-    public function logout(){
+    public function logout()
+    {
         if(isset($_GET['action']) && ($_GET['action'] == 'logout'))
         {
             session_destroy();
@@ -24,7 +27,8 @@ class LoginAdminController extends BaseController{
 
     }
     
-    public function loginCheck(){
+    public function loginCheck()
+    {
         $selectColumns = ['*'];
         $orderBy = ['id', 'DESC'];
         $limit = 1;

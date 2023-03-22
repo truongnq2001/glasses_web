@@ -17,13 +17,13 @@ class CartController extends BaseController{
 
     public function saveCart()
     {
-        if (isset($_GET['product_id'])) {
+        if (isset($_REQUEST['product_id'])) {
             // Khai báo $_SESSION['cart'] = [] trong LoginController
             // lấy thông tin sản phẩm
-            $productId = $_GET['product_id'];
-            $productName = $_GET['product_name'];
-            $productPrice = $_GET['product_price'];
-            $productQuantity = $_GET['product_quantity'];
+            $productId = $_REQUEST['product_id'];
+            $productName = $_REQUEST['product_name'];
+            $productPrice = $_REQUEST['product_price'];
+            $productQuantity = $_REQUEST['product_quantity'];
         
             // kiểm tra xem sản phẩm đã tồn tại trong giỏ hàng chưa
             $productIndex = -1;
