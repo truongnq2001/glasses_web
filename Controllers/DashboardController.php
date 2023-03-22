@@ -1,5 +1,4 @@
 <?php
-
 class DashboardController extends BaseController
 {
     private $productModel;
@@ -91,7 +90,16 @@ class DashboardController extends BaseController
         return $pages;
     }
 
-
+    public function user()
+    {
+        $this->loadModel('UserModel');
+        $userModel = new UserModel;
+        $listUser = $userModel->getLimitUser(0, 8);
+        return $this->view(
+            viewPath: 'backend.userDashboard',
+            data: [
+                'listUser' => $listUser,
+            ]
+        );
+    }
 }
-
-?>

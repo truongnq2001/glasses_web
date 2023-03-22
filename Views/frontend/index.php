@@ -485,6 +485,11 @@ include 'public/header.php';
     </div> -->
     <!-- Offer End -->
 
+    <div class="container-fluid pt-5 pb-3">
+        <div class="row px-xl-5">
+        <img src="https://cdn.shopify.com/s/files/1/0015/2879/1092/files/TBES-flat-50-Sunglasses-Banner_7fb1dfed-e1c6-4df6-86a6-4737ac7307f7.jpg?v=1676957068" alt="" style="width: 100%; height: 370px; object-fit: cover;">
+        </div>
+    </div>
 
     <!-- Products Start -->
     <div class="container-fluid pt-5 pb-3">

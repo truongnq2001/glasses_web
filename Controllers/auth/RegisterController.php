@@ -1,5 +1,4 @@
 <?php
-
 class RegisterController extends BaseController{
     private $userModel;
     public function __construct()

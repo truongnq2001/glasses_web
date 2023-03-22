@@ -1,5 +1,4 @@
 <?php
-
 class ProductController extends BaseController{
     private $productModel;
     public function __construct()

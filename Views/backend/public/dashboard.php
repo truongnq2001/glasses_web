@@ -6,10 +6,11 @@
     <!-- User details -->
     <div class="user-profile text-center mt-3">
         <div class="">
-            <img src="assets/images/users/avatar-1.jpg" alt="" class="avatar-md rounded-circle">
+            <img src="https://t4.ftcdn.net/jpg/04/75/00/99/360_F_475009987_zwsk4c77x3cTpcI3W1C1LU4pOSyPKaqi.jpg" alt="" class="avatar-md rounded-circle" style="    object-fit: cover;
+    width: 55%;">
         </div>
         <div class="mt-3">
-            <h4 class="font-size-16 mb-1">Julia Hudda</h4>
+            <h4 class="font-size-16 mb-1">Admin</h4>
             <span class="text-muted"><i class="ri-record-circle-line align-middle font-size-14 text-success"></i> Online</span>
         </div>
     </div>
@@ -35,7 +36,7 @@
             </li>
 
             <li>
-                <a href="?controller=product" class=" waves-effect">
+                <a href="?controller=dashboard&action=user" class=" waves-effect">
                     <i class="dripicons-user"></i>
                     <span>User</span>
                 </a>

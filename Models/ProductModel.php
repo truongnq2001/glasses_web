@@ -1,5 +1,4 @@
 <?php
-
 class ProductModel extends BaseModel
 {
     const TABLE = 'products';

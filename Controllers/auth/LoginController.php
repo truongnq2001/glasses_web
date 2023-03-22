@@ -1,5 +1,4 @@
 <?php
-
 class LoginController extends BaseController{
     private $userModel;
     public function __construct()
@@ -34,16 +33,12 @@ class LoginController extends BaseController{
         if(!empty($_POST)){
             $username = $_POST['username'];
             $password = md5($_POST['password']);
-            for ($i=0; $i < count($user); $i++) { 
-                if($username == $user[$i]['username']){
-                    $index = $i;
-                }
-            }
-            if($username == $user[$index]['username'] && $password == $user[$index]['password']){
+            $user = $this->userModel->getCheckLogin($username, $password);
+            if(isset($user) && $user != []){
                 $_SESSION['userLogin'] = true;
-                $_SESSION['userId'] = $user[$index]['id'];
-                $_SESSION['userUsername'] = $user[$index]['username'];
-                $_SESSION['userEmail'] = $user[$index]['email'];
+                $_SESSION['userId'] = $user[0]['id'];
+                $_SESSION['userUsername'] = $user[0]['username'];
+                $_SESSION['userEmail'] = $user[0]['email'];
             }
         }
         if(isset($_SESSION['userLogin']) && $_SESSION['userLogin'] == true){

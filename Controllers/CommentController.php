@@ -1,5 +1,4 @@
 <?php
-
 class CommentController extends BaseController{
     private $commentModel;
 

@@ -228,6 +228,34 @@ class BaseModel extends Database
         return $data;
     }
 
+    /**
+     * Limit gioi han user trong bang 
+     */
+    public function limitUser(string $tableName, int $index, int $numLimit)
+    {
+        $sql = "SELECT * FROM $tableName ORDER BY updated_at DESC LIMIT $index ,$numLimit";
+        $query = $this->_query($sql);
+        $data = [];
+        while ($row = mysqli_fetch_assoc($query)) {
+            array_push($data, $row);
+        }
+        return $data;
+    }
+
+    /**
+     * check login
+     */
+    public function checkLogin(string $tableName, string $username, string $password)
+    {
+        $sql = "SELECT * FROM $tableName WHERE username = '$username' AND password = '$password'";
+        $query = $this->_query($sql);
+        $data = [];
+        while ($row = mysqli_fetch_assoc($query)) {
+            array_push($data, $row);
+        }
+        return $data;
+    }
+
     private function _query($sql)
     {
         return mysqli_query($this->conn, $sql);

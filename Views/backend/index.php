@@ -17,12 +17,7 @@ include 'public/dashboard.php';
                                 <div class="page-title-box d-sm-flex align-items-center justify-content-between">
                                     <h4 class="mb-sm-0">Dashboard</h4>
 
-                                    <div class="page-title-right">
-                                        <ol class="breadcrumb m-0">
-                                            <li class="breadcrumb-item"><a href="javascript: void(0);">Upcube</a></li>
-                                            <li class="breadcrumb-item active">Dashboard</li>
-                                        </ol>
-                                    </div>
+                                   
 
                                 </div>
                             </div>
@@ -36,16 +31,7 @@ include 'public/dashboard.php';
                                             <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false">
                                                 <i class="mdi mdi-dots-vertical"></i>
                                             </a>
-                                            <div class="dropdown-menu dropdown-menu-end">
-                                                <!-- item-->
-                                                <a href="javascript:void(0);" class="dropdown-item">Sales Report</a>
-                                                <!-- item-->
-                                                <a href="javascript:void(0);" class="dropdown-item">Export Report</a>
-                                                <!-- item-->
-                                                <a href="javascript:void(0);" class="dropdown-item">Profit</a>
-                                                <!-- item-->
-                                                <a href="javascript:void(0);" class="dropdown-item">Action</a>
-                                            </div>
+                                            
                                         </div>
     
                                         <h4 class="card-title mb-4">Danh sách sản phẩm đã đăng</h4>

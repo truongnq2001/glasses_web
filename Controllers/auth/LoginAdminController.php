@@ -1,5 +1,4 @@
 <?php
-
 class LoginAdminController extends BaseController{
     private $adminModel;
     public function __construct()
